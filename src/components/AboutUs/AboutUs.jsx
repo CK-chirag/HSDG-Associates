@@ -170,7 +170,7 @@ const AboutUs = () => {
 				Assets.pic3,
 		},
 		{
-			name: 'CA Uzma',
+			name: 'CS Uzma',
 			role: 'Associate Partner',
 			image:
 				Assets.pic2

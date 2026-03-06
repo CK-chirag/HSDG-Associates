@@ -72,6 +72,8 @@ const ForeignDesk = () => {
                   { code: 'gb', name: 'United Kingdom' },
                   { code: 'au', name: 'Australia' },
                   { code: 'ae', name: 'United Arab Emirates' },
+                  { code: 'ca', name: 'Canada' },
+                  { code: 'nz', name: 'New Zealand' },
                 ].map((country) => (
                   <div
                     key={country.code}
