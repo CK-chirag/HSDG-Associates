@@ -65,23 +65,25 @@ const Header = () => {
 
             <div className="border-b border-[color:var(--color-divider)] bg-white">
                 <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4">
-                    <div className="flex items-center gap-3">
-                        <div className="flex h-6 w-10 items-center justify-center text-white">
-                            <img
-                                src="https://vectorseek.com/wp-content/uploads/2023/09/Institute-of-Chartered-Accountants-Logo-Vector.svg-.png"
-                                alt="HSDG & Associates"
-                                className="h-full w-full"
-                            />
+                    <Link to="/">
+                        <div className="flex items-center gap-3">
+                            <div className="flex h-6 w-10 items-center justify-center text-white">
+                                <img
+                                    src="https://vectorseek.com/wp-content/uploads/2023/09/Institute-of-Chartered-Accountants-Logo-Vector.svg-.png"
+                                    alt="HSDG & Associates"
+                                    className="h-full w-full"
+                                />
+                            </div>
+                            <div>
+                                <p className="text-lg font-semibold text-[color:var(--color-header)]">
+                                    HSDG & Associates
+                                </p>
+                                <p className="text-xs text-[color:var(--color-paragraph)]">
+                                    Chartered Accountants
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <p className="text-lg font-semibold text-[color:var(--color-header)]">
-                                HSDG & Associates
-                            </p>
-                            <p className="text-xs text-[color:var(--color-paragraph)]">
-                                Chartered Accountants
-                            </p>
-                        </div>
-                    </div>
+                    </Link>
 
                     <div className="flex items-center gap-2">
                         <nav className="hidden items-center gap-5 text-sm font-medium text-[color:var(--color-header)] md:flex">
@@ -148,11 +150,11 @@ const Header = () => {
                             </svg>
                         </button>
                         <a
-							href="https://wa.me/917838834303"
-							className="inline-flex items-center gap-2 ml-2 rounded-full bg-[color:var(--color-header)] px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-						>
-							Get Consultation
-						</a>
+                            href="https://wa.me/917838834303"
+                            className="inline-flex items-center gap-2 ml-2 rounded-full bg-[color:var(--color-header)] px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                        >
+                            Get Consultation
+                        </a>
                     </div>
                 </div>
 
