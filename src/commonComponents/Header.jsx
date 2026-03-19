@@ -13,7 +13,7 @@ const Header = () => {
                     <div className="flex flex-wrap items-center gap-4">
                         <a
                             className="flex items-center gap-2 transition-opacity hover:opacity-80"
-                            href="tel:+919876543210"
+                            href="tel:011-41827784"
                         >
                             <svg
                                 aria-hidden="true"
@@ -29,7 +29,7 @@ const Header = () => {
                                     d="M2 5.5c0-.83.67-1.5 1.5-1.5h3.14c.7 0 1.32.44 1.54 1.1l1 3c.23.7-.05 1.46-.66 1.84l-1.7 1.06a14.1 14.1 0 006.22 6.22l1.06-1.7c.38-.61 1.14-.89 1.84-.66l3 1c.66.22 1.1.84 1.1 1.54V20.5c0 .83-.67 1.5-1.5 1.5h-1c-9.94 0-18-8.06-18-18v-1z"
                                 />
                             </svg>
-                            +91 78388 34303
+                            011-41827784
                         </a>
                         <a
                             className="flex items-center gap-2 transition-opacity hover:opacity-80"

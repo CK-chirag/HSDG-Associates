@@ -1,23 +1,44 @@
 const ContactUs = () => {
 	const offices = [
 		{
-			name: 'New Delhi',
-			type: 'Head Office',
-			address: 'D-194, First Floor, Okhla Phase I, New Delhi - 110020',
-			phone: '+91 7838834303',
-			email: 'executive@hsdg.in',
-		},
-		{
 			name: 'Faridabad',
 			type: 'Branch Office',
-			address: 'Sector 16, Faridabad, Haryana',
+			address: '4649, 3RD FLOOR, ACHIEVERS SOCIETY, SECTOR 49, FARIDABAD, HARYANA, INDIA, 121001',
 			phone: '+91 98765 43210',
 			email: 'faridabad@hsdg.in',
 		},
 		{
 			name: 'Chandigarh',
 			type: 'Branch Office',
-			address: 'Sector 17, Chandigarh',
+			address: '1078, Sector 12A, Panchkula, Panchkula, Haryana, India, 134113',
+			phone: '+91 98765 43211',
+			email: 'chandigarh@hsdg.in',
+		},
+		{
+			name: 'Sonipat',
+			type: 'Branch Office',
+			address: 'F4-11, White Lily Residence, Sector 27, Sonepat, Haryana, India, 131001',
+			phone: '+91 7838834303',
+			email: 'executive@hsdg.in',
+		},
+		{
+			name: 'Jaipur',
+			type: 'Branch Office',
+			address: 'D 61 62, Back Side 80 Feet Road, Mahesh Nagar, Jaipur, Rajasthan, India, 302015',
+			phone: '+91 98765 43210',
+			email: 'faridabad@hsdg.in',
+		},
+		{
+			name: 'Srinagar',
+			type: 'Branch Office',
+			address: 'Shahbad House, Baghat Barzulla, Near Gurudwara, Srinagar, Jammu and Kashmir, India, 190005',
+			phone: '+91 98765 43211',
+			email: 'chandigarh@hsdg.in',
+		},
+		{
+			name: 'Ludhiana',
+			type: 'Branch Office',
+			address: 'GK Estate Colony, Mundiyan Kalan, Ludhiana, Punjab, India, 141015',
 			phone: '+91 98765 43211',
 			email: 'chandigarh@hsdg.in',
 		},
@@ -165,10 +186,10 @@ const ContactUs = () => {
 										Phone
 									</p>
 									<a
-										href="tel:+917838834303"
+										href="tel:011-41827784"
 										className="mt-1 text-sm font-medium text-[color:var(--color-header)] hover:underline"
 									>
-										+91 7838834303
+										011-41827784
 									</a>
 								</div>
 							</div>
@@ -268,7 +289,7 @@ const ContactUs = () => {
 				</div>
 			</div>
 
-            <div className="bg-[color:var(--color-header)] py-12 text-white">
+			<div className="bg-[color:var(--color-header)] py-12 text-white">
 				<div className="mx-auto max-w-4xl px-4 text-center">
 					<div className="mx-auto mb-4 h-0.5 w-16 rounded-full bg-white/70" />
 					<h2 className="text-2xl font-semibold text-white">Ready to Work Together?</h2>
@@ -296,7 +317,39 @@ const ContactUs = () => {
 						<div className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-[color:var(--color-header)]/70" />
 					</div>
 
-					<div className="mt-10 grid gap-6 md:grid-cols-3">
+					<article
+						className="mt-10 rounded-2xl border border-[color:var(--color-divider)] bg-white p-6 text-center shadow-sm"
+					>
+						<div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[color:var(--color-header)] text-white">
+							<svg
+								aria-hidden="true"
+								className="h-6 w-6"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M12 21s-7-5.3-7-11a7 7 0 1 1 14 0c0 5.7-7 11-7 11z"
+								/>
+								<circle cx="12" cy="10" r="2.5" />
+							</svg>
+						</div>
+						<h3 className="mt-4 text-lg font-semibold text-[color:var(--color-header)]">
+							New Delhi
+						</h3>
+						<p className="mt-1 text-xs font-semibold uppercase tracking-wide text-[color:var(--color-paragraph)]">
+							Head Office
+						</p>
+						<div className="mx-auto my-4 h-px w-12 bg-[color:var(--color-divider)]" />
+						<p className="text-sm text-[color:var(--color-paragraph)]">
+							D-194, First Floor, Okhla Phase I, New Delhi - 110020
+						</p>
+					</article>
+
+					<div className="mt-6 grid gap-6 md:grid-cols-3">
 						{offices.map((office) => (
 							<article
 								key={office.name}
@@ -327,22 +380,9 @@ const ContactUs = () => {
 								</p>
 								<div className="mx-auto my-4 h-px w-12 bg-[color:var(--color-divider)]" />
 								<p className="text-sm text-[color:var(--color-paragraph)]">{office.address}</p>
-								<p className="mt-3 text-sm font-medium text-[color:var(--color-header)]">
-									{office.phone}
-								</p>
-								<a
-									href={`mailto:${office.email}`}
-									className="mt-1 text-sm font-medium text-[color:var(--color-header)] hover:underline"
-								>
-									{office.email}
-								</a>
 							</article>
 						))}
 					</div>
-
-					<p className="mt-8 text-center text-sm text-[color:var(--color-paragraph)]">
-						Additional offices in Sonipat, Jaipur, Srinagar & Ludhiana
-					</p>
 				</div>
 			</div>
 		</section>
