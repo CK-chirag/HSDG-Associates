@@ -1,11 +1,29 @@
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { insightsPosts } from './insightsData'
+import { getPosts } from '../../services/blogService'
 
 const handleScrollTop = () => window.scrollTo(0, 0)
 
 const InsightDetail = () => {
   const { slug } = useParams()
-  const post = insightsPosts.find((item) => item.slug === slug)
+  const [post, setPost] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    getPosts()
+      .then((posts) => setPost(posts.find((item) => item.slug === slug) || null))
+      .finally(() => setLoading(false))
+  }, [slug])
+
+  if (loading) {
+    return (
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <p className="text-sm text-[color:var(--color-paragraph)]">Loading...</p>
+        </div>
+      </section>
+    )
+  }
 
   if (!post) {
     return (

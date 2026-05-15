@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { industries } from './industriesData'
+import { useEffect } from 'react'
+
 
 const handleScrollTop = () => window.scrollTo(0, 0)
 

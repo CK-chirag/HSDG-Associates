@@ -1,9 +1,29 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { insightsPosts } from './insightsData'
+import { getPosts } from '../../services/blogService'
 
 const handleScrollTop = () => window.scrollTo(0, 0)
 
 const InsightsPage = () => {
+  const [posts, setPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    getPosts()
+      .then(setPosts)
+      .finally(() => setLoading(false))
+  }, [])
+
+  if (loading) {
+    return (
+      <section className="bg-white py-14">
+        <div className="mx-auto max-w-7xl px-4 py-20 text-center">
+          <p className="text-sm text-[color:var(--color-paragraph)]">Loading...</p>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="bg-white py-14">
       <div className="mx-auto max-w-7xl px-4">
@@ -17,10 +37,15 @@ const InsightsPage = () => {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-3">
-          {insightsPosts.map((post) => (
+        {posts.length === 0 ? (
+          <div className="mt-12 rounded-2xl border border-[color:var(--color-divider)] bg-[color:var(--color-muted)] px-6 py-12 text-center">
+            <p className="text-sm text-[color:var(--color-paragraph)]">No insights yet.</p>
+          </div>
+        ) : (
+          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+            {posts.map((post) => (
             <article
-              key={post.slug}
+              key={post.id}
               className="overflow-hidden rounded-2xl border border-[color:var(--color-divider)] bg-white"
             >
               <img
@@ -58,8 +83,9 @@ const InsightsPage = () => {
                 </Link>
               </div>
             </article>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

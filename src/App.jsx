@@ -12,6 +12,8 @@ import InsightDetail from './components/Insights/InsightDetail'
 import IndustriesPage from './components/Industries/IndustriesPage'
 import IndustryDetail from './components/Industries/IndustryDetail'
 import ForeignDesk from './components/ForeignDesk/ForeignDesk'
+import AdminDashboard from './pages/AdminDashboard'
+import AdminJobs from './pages/AdminJobs'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/:slug" element={<InsightDetail />} />
+          <Route path="/manage-insights-hsdg" element={<AdminDashboard />} />
+          <Route path="/manage-jobs-hsdg" element={<AdminJobs />} />
           <Route path="/industries" element={<IndustriesPage />} />
           <Route path="/industries/:slug" element={<IndustryDetail />} />
           <Route path="/foreign" element={<ForeignDesk />} />

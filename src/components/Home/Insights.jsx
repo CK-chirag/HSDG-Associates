@@ -1,9 +1,23 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { insightsPosts } from '../Insights/insightsData'
+import { getPosts } from '../../services/blogService'
 
 const handleScrollTop = () => window.scrollTo(0, 0)
 
 const Insights = () => {
+	const [posts, setPosts] = useState([])
+	const [loading, setLoading] = useState(true)
+
+	useEffect(() => {
+		getPosts()
+			.then((data) => setPosts(data.slice(0, 3)))
+			.finally(() => setLoading(false))
+	}, [])
+
+	if (loading || posts.length === 0) {
+		return null
+	}
+
 	return (
 		<section className="bg-white py-12">
 			<div className="mx-auto max-w-7xl px-4">
@@ -18,9 +32,9 @@ const Insights = () => {
 				</div>
 
 				<div className="mt-10 grid gap-6 lg:grid-cols-3">
-					{insightsPosts.slice(0, 3).map((post) => (
+					{posts.map((post) => (
 						<article
-							key={post.title}
+							key={post.id}
 							className="overflow-hidden rounded-2xl border border-[color:var(--color-divider)] bg-white"
 						>
 							<img

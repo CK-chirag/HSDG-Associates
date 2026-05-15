@@ -1,10 +1,20 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const toggleMenu = () => setIsMenuOpen((open) => !open)
     const closeMenu = () => setIsMenuOpen(false)
+    const navItems = [
+        { label: 'Home', to: '/', end: true },
+        { label: 'Services', to: '/services' },
+        { label: 'About Us', to: '/about-us' },
+        { label: 'Industries', to: '/industries' },
+        { label: 'Foreign Desk', to: '/foreign' },
+        { label: 'Insights', to: '/insights' },
+        { label: 'Careers', to: '/careers' },
+        { label: 'Contact Us', to: '/contact-us' },
+    ]
 
     return (
         <header className="w-full">
@@ -87,54 +97,22 @@ const Header = () => {
 
                     <div className="flex items-center gap-2">
                         <nav className="hidden items-center gap-5 text-sm font-medium text-[color:var(--color-header)] md:flex">
-                            <Link
-                                className="transition-colors hover:text-[color:var(--color-paragraph)]"
-                                to="/"
-                            >
-                                Home
-                            </Link>
-                            <Link
-                                className="transition-colors hover:text-[color:var(--color-paragraph)]"
-                                to="/services"
-                            >
-                                Services
-                            </Link>
-                            <Link
-                                className="transition-colors hover:text-[color:var(--color-paragraph)]"
-                                to="/about-us"
-                            >
-                                About Us
-                            </Link>
-                            <Link
-                                className="transition-colors hover:text-[color:var(--color-paragraph)]"
-                                to="/industries"
-                            >
-                                Industries
-                            </Link>
-                            <Link
-                                className="transition-colors hover:text-[color:var(--color-paragraph)]"
-                                to="/foreign"
-                            >
-                                Foreign Desk
-                            </Link>
-                            <Link
-                                className="transition-colors hover:text-[color:var(--color-paragraph)]"
-                                to="/insights"
-                            >
-                                Insights
-                            </Link>
-                            <Link
-                                className="transition-colors hover:text-[color:var(--color-paragraph)]"
-                                to="/careers"
-                            >
-                                Careers
-                            </Link>
-                            <Link
-                                className="transition-colors hover:text-[color:var(--color-paragraph)]"
-                                to="/contact-us"
-                            >
-                                Contact Us
-                            </Link>
+                            {navItems.map((item) => (
+                                <NavLink
+                                    key={item.to}
+                                    className={({ isActive }) =>
+                                        `inline-flex items-center border-b-2 pb-1 transition-colors hover:text-[color:var(--color-paragraph)] ${
+                                            isActive
+                                                ? 'border-[color:var(--color-header)]'
+                                                : 'border-transparent'
+                                        }`
+                                    }
+                                    to={item.to}
+                                    end={item.end}
+                                >
+                                    {item.label}
+                                </NavLink>
+                            ))}
                         </nav>
                         <button
                             className="ml-2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--color-divider)] text-[color:var(--color-header)] transition-colors hover:bg-[color:var(--color-divider)]/30 md:hidden"
@@ -161,30 +139,21 @@ const Header = () => {
                 {isMenuOpen && (
                     <div className="border-t border-[color:var(--color-divider)] bg-white md:hidden">
                         <nav className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-sm font-medium text-[color:var(--color-header)]">
-                            <Link className="py-1" to="/" onClick={closeMenu}>
-                                Home
-                            </Link>
-                            <Link className="py-1" to="/services" onClick={closeMenu}>
-                                Services
-                            </Link>
-                            <Link className="py-1" to="/about-us" onClick={closeMenu}>
-                                About Us
-                            </Link>
-                            <Link className="py-1" to="/industries" onClick={closeMenu}>
-                                Industries
-                            </Link>
-                            <Link className="py-1" to="/foreign" onClick={closeMenu}>
-                                Foreign Desk
-                            </Link>
-                            <Link className="py-1" to="/insights" onClick={closeMenu}>
-                                Insights
-                            </Link>
-                            <Link className="py-1" to="/careers" onClick={closeMenu}>
-                                Careers
-                            </Link>
-                            <Link className="py-1" to="/contact-us" onClick={closeMenu}>
-                                Contact Us
-                            </Link>
+                            {navItems.map((item) => (
+                                <NavLink
+                                    key={item.to}
+                                    className={({ isActive }) =>
+                                        `py-1 transition-colors hover:text-[color:var(--color-paragraph)] ${
+                                            isActive ? 'underline underline-offset-4' : ''
+                                        }`
+                                    }
+                                    to={item.to}
+                                    end={item.end}
+                                    onClick={closeMenu}
+                                >
+                                    {item.label}
+                                </NavLink>
+                            ))}
                         </nav>
                     </div>
                 )}
